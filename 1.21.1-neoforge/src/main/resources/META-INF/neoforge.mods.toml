@@ -1,0 +1,34 @@
+modLoader = "javafml"
+loaderVersion = "[4,)"
+license = "MIT"
+
+[[mods]]
+modId = "bpdupe1211"
+version = "1.0.0"
+displayName = "Backpack Filter-Slot Transfer Key (1.21.1 / NeoForge)"
+description = '''
+Client-side key that sends sophisticatedcore:transfer_full_slot for the open backpack's filter slots.
+Against an unpatched Sophisticated Core it turns a filter sample into a real item (+1 per send).
+K = one send per filter slot, Shift+K = repeat, Ctrl+K = plant the clipboard item id as a ghost sample and take it.
+'''
+
+[[dependencies.bpdupe1211]]
+modId = "neoforge"
+type = "required"
+versionRange = "[21.1.0,)"
+ordering = "NONE"
+side = "CLIENT"
+
+[[dependencies.bpdupe1211]]
+modId = "minecraft"
+type = "required"
+versionRange = "[1.21.1,1.21.2)"
+ordering = "NONE"
+side = "CLIENT"
+
+[[dependencies.bpdupe1211]]
+modId = "sophisticatedcore"
+type = "required"
+versionRange = "[1.4.0,)"
+ordering = "AFTER"
+side = "CLIENT"

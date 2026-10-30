@@ -1,0 +1,42 @@
+plugins {
+    id 'net.minecraftforge.gradle' version '[6.0,6.2)'
+}
+
+version = '1.0.0'
+group = 'local.bpdupe'
+archivesBaseName = 'bpdupe-1.20.1'
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(17)
+
+minecraft {
+    mappings channel: 'official', version: '1.20.1'
+}
+
+repositories {
+    maven { url = 'https://maven.minecraftforge.net/' }
+    flatDir { dirs 'libs' }
+}
+
+dependencies {
+    minecraft 'net.minecraftforge:forge:1.20.1-47.2.0'
+    // 编译期依赖 Sophisticated Core 1.20.1-1.5.17.2435（Modrinth 发行版），
+    // 用 fg.deobf 把它的 SRG 名重映射到 official，编译产物再由 reobfJar 映射回 SRG。
+    compileOnly fg.deobf(files('libs/sophisticatedcore.jar'))
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
+
+jar {
+    manifest {
+        attributes([
+                'Specification-Title'     : 'bpdupe',
+                'Specification-Vendor'    : 'local',
+                'Specification-Version'   : '1',
+                'Implementation-Title'    : project.name,
+                'Implementation-Version'  : project.jar.archiveVersion,
+                'Implementation-Vendor'   : 'local'
+        ])
+    }
+}

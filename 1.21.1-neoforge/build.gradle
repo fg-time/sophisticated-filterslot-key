@@ -1,0 +1,40 @@
+plugins {
+    id 'java'
+    id 'net.neoforged.moddev' version '2.0.78'
+}
+
+version = '1.0.0'
+group = 'local.bpdupe1211'
+base.archivesName = 'bpdupe-1.21.1'
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+
+neoForge {
+    version = '21.1.265'
+
+    runs {
+        client {
+            client()
+        }
+    }
+
+    mods {
+        bpdupe1211 {
+            sourceSet sourceSets.main
+        }
+    }
+}
+
+repositories {
+    maven { url = 'https://maven.neoforged.net/releases' }
+}
+
+dependencies {
+    // Sophisticated Core 1.21.1-1.5.19.2434 (Modrinth, SHA-256 fe544662...d4f2af).
+    // NeoForge 1.20.2+ ships Mojang official names in production mods, so no deobf/reobf step is needed.
+    compileOnly files('libs/sophisticatedcore-1.21.1-1.5.19.2434.jar')
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}

@@ -1,0 +1,34 @@
+modLoader="javafml"
+loaderVersion="[47,)"
+license="MIT"
+
+[[mods]]
+modId="bpdupe"
+version="1.0.0"
+displayName="Backpack Filter-Slot Transfer Key (1.20.1)"
+description='''
+Client-side key that sends sophisticatedcore:transfer_full_slot for the open backpack's filter slots.
+Against an unpatched Sophisticated Core it turns a filter sample into a real item (+1 per send).
+Press K by default; Shift+K repeats while held.
+'''
+
+[[dependencies.bpdupe]]
+modId="forge"
+mandatory=true
+versionRange="[47,)"
+ordering="NONE"
+side="CLIENT"
+
+[[dependencies.bpdupe]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.20.1,1.20.2)"
+ordering="NONE"
+side="CLIENT"
+
+[[dependencies.bpdupe]]
+modId="sophisticatedcore"
+mandatory=true
+versionRange="[1.4.0,)"
+ordering="AFTER"
+side="CLIENT"

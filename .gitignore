@@ -1,0 +1,14 @@
+# 构建产物
+build/
+out/
+*.log
+
+# 本地编译期依赖：Sophisticated Core 发行 jar（All Rights Reserved，不随仓库分发）
+libs/
+*.jar
+
+# 工具链残留
+.gradle/
+run/
+tmp/
+compile-classpath.txt
